@@ -39,12 +39,10 @@ def generate_reverse_steps(c_code):
     #returns gpt response
     return response.choices[0].message.content.strip()
 
-if __name__ == "__main__":
-    
-    with open("marx.c", "r") as f:
-        c_code = f.read()
+with open("marx.c", "r") as f:
+    c_code = f.read()
 
-    steps_text = generate_reverse_steps(c_code)
+steps_text = generate_reverse_steps(c_code)
 
 #strips code block formatting if necessary
 if "```json" in steps_text:
